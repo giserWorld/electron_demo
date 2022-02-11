@@ -1,0 +1,55 @@
+{
+  "name": "electron-quick-start",
+  "version": "1.0.0",
+  "description": "A minimal Electron application",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "package": "electron-packager ./dist HelloWorld --platform=win32 --arch=x64 --icon=computer.ico --out=./out --asar --app-version=1.0.0 --overwrite --ignore=node_modules",
+    "package2": "electron-packager ./dist myexe --platform=win32 --arch=x64 --out=./out --asar --overwrite",
+    "build":"electron-builder --win --x64"
+  },
+  "repository": "https://github.com/electron/electron-quick-start",
+  "keywords": [
+    "Electron",
+    "quick",
+    "start",
+    "tutorial",
+    "demo"
+  ],
+  "author": "GitHub",
+  "license": "CC0-1.0",
+  "build": {
+    "productName":"离线web安装包",
+    "appId": "app20220211",
+    "copyright":"app©20220211",
+    "directories": {
+      "output": "app_file"
+    }, 
+    "nsis": {
+      "oneClick": false,
+      "allowElevation": true,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "离线web"
+    },
+    "win": {
+      "icon": "app/gs.ico",
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "ia32"
+          ]
+        }
+      ]
+    }
+  },
+  "devDependencies": {
+    "electron": "^17.0.0"
+  },
+  "dependencies": {
+   
+  }
+}
